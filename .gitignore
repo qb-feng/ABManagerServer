@@ -1,3 +1,6 @@
-*/LocalResources/AssetBundles/*
+*.ab
+*.ab.meta
+*.manifest
+*.manifest.meta
 .vs*
 *LocalResources.rar
