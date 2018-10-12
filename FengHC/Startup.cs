@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using System.IO;
+using FengHC.DBScripts.Model;
 
 namespace FengHC
 {
@@ -33,6 +34,10 @@ namespace FengHC
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            //添加数据库的相关服务
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.Add(new ServiceDescriptor(typeof(DBContext), new DBContext(connectionString)));
 
             //添加mcc服务
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
