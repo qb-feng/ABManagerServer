@@ -4,3 +4,5 @@
 *.manifest.meta
 .vs*
 *LocalResources.rar
+bin/
+obj/
